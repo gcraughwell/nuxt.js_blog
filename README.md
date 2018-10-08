@@ -21,3 +21,4 @@ $ yarn run generate
 
 For detailed explanation on how things work, checkout [Nuxt.js docs](https://nuxtjs.org).
 # nuxt.js_blog
+# nuxt.js_blog

@@ -6,6 +6,9 @@ module.exports = {
   /*
   ** Headers of the page
   */
+  //this is where you set page title meta data
+  // link allows you to add fonts to an array rel and href
+
   head: {
     title: pkg.name,
     meta: [

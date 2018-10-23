@@ -1,26 +1,86 @@
 <template>
-  <div class="home-name">
-<section class="intro">
-  <h1>Get the latest tech news </h1>
-  <section class="featured-post">
-    <nuxt-link :to="'/posts/' + 1">
-<article class="post-preview">
-  <div class="post-thumbnail"></div>
-  <div class="post-content"></div>
-  <h1> Post Title</h1>
-  <p> Preview Text</p>
-</article>
-    </nuxt-link>
-    <nuxt-link :to="'/posts/' + 2">
-  <article class="post-preview">
-  <div class="post-thumbnail"></div>
-  <div class="post-content"></div>
-  <h1> Post Title 2</h1>
-  <p> Preview Text 2</p>
-  </article>
-    </nuxt-link>
-  </section>
+  <div class="home-page">
+    <section class="intro">
+        <h1>Get the latest tech news </h1>
+    </section>
 
-</section>
-</div>
+
+    <section class="featured-posts">
+    <PostPreview
+    id="1"
+    thumbnail="https://images.unsplash.com/photo-1529101091764-c3526daf38fe?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=43ef07555334a21b6c7dcecc929070ce&w=1000&q=80"
+    title="hello 1"
+    previewText="1st post"/>
+    <PostPreview
+    id="2"
+    thumbnail="https://images.unsplash.com/photo-1529101091764-c3526daf38fe?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=43ef07555334a21b6c7dcecc929070ce&w=1000&q=80"
+    title="hello 2"
+    previewText="2nd post"/>
+    <PostPreview
+    id="3"
+    thumbnail="https://images.unsplash.com/photo-1529101091764-c3526daf38fe?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=43ef07555334a21b6c7dcecc929070ce&w=1000&q=80"
+    title="hello 3"
+    previewText="3rd post"/>
+
+    </section>
+  </div>
 </template>
+
+
+
+
+
+
+<script>
+import PostPreview from "../components/Posts/PostPreview";
+
+export default {
+  components: {
+    PostPreview
+  }
+};
+</script>
+
+
+
+<style scoped>
+.intro {
+  height: 300px;
+  position: relative;
+  padding: 30px;
+  box-sizing: border-box;
+  background-position: center;
+  background-image: url("~assets/images/main-page-background.jpg");
+  background-size: cover;
+}
+
+.intro h1 {
+  position: absolute;
+  top: 10%;
+  left: 5%;
+  width: 90%;
+  font-size: 1.5rem;
+  color: black;
+  background-color: rgb(211, 211, 211);
+  padding: 10px;
+  border-radius: 10px;
+  box-shadow: 3px 3px 3px black;
+  box-sizing: border-box;
+  border: 1px solid black;
+}
+
+@media (min-width: 768px) {
+  .intro h1 {
+    font-size: 2rem;
+  }
+}
+
+.featured-posts {
+  display: flex;
+  padding: 20px;
+  box-sizing: border-box;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+}
+</style>

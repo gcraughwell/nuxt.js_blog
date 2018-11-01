@@ -1,18 +1,39 @@
 <template>
 <div class="single-page-post">
   <section class="post">
-<h1 class="post-title">Title of Post</h1>
+<h1 class="post-title">{{ loadedPost.title }}</h1>
 <div class="post-details">
-  <div class="post-detail"> last updated on xxx</div>
-  <div class="post-detail"> written by xyz</div>
+  <div class="post-detail">last updated on: {{ loadedPost.updatedDate }}</div>
+  <div class="post-detail">Author: {{ loadedPost.author }}</div>
 </div>
-<p class="post-content"> Content of the post</p>
+<p class="post-content"> {{loadedPost.content }}</p>
   </section>
   <section class="post-feedback">
     <p> Tell me what you think of my post <a href="mailto:wuerh@dfsghsd.com">email</a></p>
   </section>
 </div>
 </template>
+<script>
+//cant use this in asyncdata as its on the server not the client
+export default {
+  asyncData(context, callback) {
+    setTimeout(() => {
+      callback(null, {
+        loadedPost: {
+          id: "1",
+          title: "title (ID:" + context.route.params.id + ")",
+          author: "Gaz",
+          updatedDate: new Date(),
+          content: "this is the content",
+          previewText: "preview text 1",
+          thumbnail:
+            "https://images.unsplash.com/photo-1529101091764-c3526daf38fe?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=43ef07555334a21b6c7dcecc929070ce&w=1000&q=80"
+        }
+      });
+    }, 1500);
+  }
+};
+</script>
 
 <style scoped>
 .single-post-page {
